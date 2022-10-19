@@ -1,2 +1,27 @@
-alert("github desktop");
-console.log("hai");
+class mhs{
+    String npm,nama;
+    int tugas,uts,uas;
+    
+    mhs(String npm,String nama) {
+        this.npm=npm;
+        this.nama=nama;
+    }
+    mhs(int tugas, int uts, int uas) {
+        this.tugas=tugas;
+        this.uts=uts;
+        this.uas=uas;
+    }
+    double total () {
+        return (0.2*tugas) + (0.3*uts) + (0.5*uas);
+    }
+    void tampil () {
+        System.out.println("NPM Mhs : "+this.npm);
+        System.out.println("Nama Mhs : "+this.nama);
+    }
+    void tampilnilai () {
+        System.out.println("Nilai Tugas : "+this.tugas);
+        System.out.println("Nilai UTS : "+this.uts);
+        System.out.println("Nilai UAS : "+this.uas);
+        System.out.println("Nilai Akhir : "+this.total());
+    }
+}
