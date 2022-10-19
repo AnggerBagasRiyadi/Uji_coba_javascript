@@ -1,27 +1,49 @@
-class mhs{
-    String npm,nama;
-    int tugas,uts,uas;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+ 
+public class Karyawan {
+    String nik, nama, bagian;
+    double gaji_pokok;
     
-    mhs(String npm,String nama) {
-        this.npm=npm;
-        this.nama=nama;
+    double getGajiPokok(){
+        if(bagian.equalsIgnoreCase("Keuangan") ){
+            gaji_pokok = 12000;
+        }else if(bagian.equalsIgnoreCase("Produksi") ){
+            gaji_pokok = 11000;
+        }else{
+            gaji_pokok = 10000;
+		}else{
+			gaji_pokok = 20000;
+        }
+        
+        return gaji_pokok;
     }
-    mhs(int tugas, int uts, int uas) {
-        this.tugas=tugas;
-        this.uts=uts;
-        this.uas=uas;
+    
+    void cetak(){
+        DecimalFormat df = new DecimalFormat("##0,000");
+        
+        System.out.println("------ Detil Karyawan ------");
+        System.out.println("No: "+ this.nik);
+        System.out.println("Nama: "+ this.nama);
+        System.out.println("Bagian: "+ this.bagian);
+        System.out.println("Gaji Pokok: "+ df.format(getGajiPokok()));
     }
-    double total () {
-        return (0.2*tugas) + (0.3*uts) + (0.5*uas);
-    }
-    void tampil () {
-        System.out.println("NPM Mhs : "+this.npm);
-        System.out.println("Nama Mhs : "+this.nama);
-    }
-    void tampilnilai () {
-        System.out.println("Nilai Tugas : "+this.tugas);
-        System.out.println("Nilai UTS : "+this.uts);
-        System.out.println("Nilai UAS : "+this.uas);
-        System.out.println("Nilai Akhir : "+this.total());
+}
+ 
+class MainKaryawan{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        Karyawan k = new Karyawan();
+        
+        System.out.print("Nomer Karyawan: ");
+        k.nik = sc.next();
+        
+        System.out.print("Nama: ");
+        k.nama = sc.next();
+        
+        System.out.print("Bagian: ");
+        k.bagian = sc.next();
+        
+        k.cetak();
     }
 }
